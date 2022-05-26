@@ -1,2 +1,2 @@
-# -database_administration
+# Database administration
  Database administration files

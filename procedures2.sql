@@ -27,10 +27,10 @@ END
 
 CREATE PROCEDURE spSomaQtdVendida (in produtoId int)
 BEGIN
-	declare qtdTotal int;
+    declare qtdTotal int;
     declare qtd int;
-	declare fim boolean;
-	declare c_pedidoVenda cursor FOR
+    declare fim boolean;
+    declare c_pedidoVenda cursor FOR
     Select Qtd from ItemPedidoVenda where idProduto = produtoId; 
 	declare CONTINUE handler for not found set fim = TRUE;
 	open c_pedidoVenda; 

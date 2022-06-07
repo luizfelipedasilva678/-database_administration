@@ -44,5 +44,5 @@ BEGIN
         set qtdTotal = qtdTotal + 1;
 	end LOOP;
     update Produto set QtdEstoque = qtdTotal where idProduto = produtoId;
-	close c_pedidoVenda;
+    close c_pedidoVenda;
 END

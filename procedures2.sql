@@ -32,16 +32,16 @@ BEGIN
     declare fim boolean;
     declare c_pedidoVenda cursor FOR
     Select Qtd from ItemPedidoVenda where idProduto = produtoId; 
-	declare CONTINUE handler for not found set fim = TRUE;
-	open c_pedidoVenda; 
-	set qtdTotal = 0;
+    declare CONTINUE handler for not found set fim = TRUE;
+    open c_pedidoVenda; 
+    set qtdTotal = 0;
 	READ_LOOP:
 	LOOP
 		FETCH c_pedidoVenda INTO qtd; 
 		IF fim THEN
 			LEAVE read_loop;
 		end IF;
-        set qtdTotal = qtdTotal + 1;
+        	set qtdTotal = qtdTotal + 1;
 	end LOOP;
     update Produto set QtdEstoque = qtdTotal where idProduto = produtoId;
     close c_pedidoVenda;
